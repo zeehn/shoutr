@@ -1,4 +1,4 @@
-class Guest.rb
+class Guest
   def email
     ""
   end

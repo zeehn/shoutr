@@ -6,8 +6,6 @@
   <% end %>
 </div>
 
-<div>
-  <% @shouts.each do |shout| %>
-    <div><%= shout.body %></div>
-  <% end %>
-</div>
+<% if @shouts.count > 0 %>
+  <%= render @shouts %>
+<% end %>
