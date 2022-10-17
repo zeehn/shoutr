@@ -1,6 +1,7 @@
 <h1>Dashboard</h1>
 <div>
   <%= form_with(model: @shout, local: true) do |f| %>
+    <%= f.hidden_field :content_type, value: "TextShout" %>
     <%= f.fields_for :content do |content_form| %>
       <%= content_form.text_field :body, required: true, autofocus: true, placeholder: "Shout here!" %>
     <% end %>    
@@ -8,6 +9,15 @@
   <% end %>
 </div>
 
+<div>
+  <%= form_with(model: @shout, local: true) do |f| %>
+    <%= f.hidden_field :content_type, value: "PhotoShout" %>
+    <%= f.fields_for :content do |content_form| %>
+      <%= content_form.file_field :image, required: true %>
+    <% end %>    
+  <%= f.submit %>
+  <% end %>
+</div>
 <% if @shouts.count > 0 %>
   <%= render @shouts %>
 <% end %>
