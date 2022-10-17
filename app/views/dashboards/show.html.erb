@@ -1,8 +1,10 @@
 <h1>Dashboard</h1>
 <div>
   <%= form_with(model: @shout, local: true) do |f| %>
-    <%= f.text_field :body, required: true, autofocus: true, placeholder: "Shout here!" %>
-    <%= f.submit %>
+    <%= f.fields_for :content do |content_form| %>
+      <%= content_form.text_field :body, required: true, autofocus: true, placeholder: "Shout here!" %>
+    <% end %>    
+  <%= f.submit %>
   <% end %>
 </div>
 
