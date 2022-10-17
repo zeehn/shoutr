@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   constraints Clearance::Constraints::SignedIn.new do 
-    get "/", to: "dashboards#show"
+    get "/", to: "dashboards#show", as: "dashboard"
   end
   
   root to: "homes#show"
@@ -16,8 +16,6 @@ Rails.application.routes.draw do
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :shouts, only: [:create]
 end

@@ -1,0 +1,13 @@
+<h1>Dashboard</h1>
+<div>
+  <%= form_with(model: @shout, local: true) do |f| %>
+    <%= f.text_field :body, required: true, autofocus: true, placeholder: "Shout here!" %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<div>
+  <% @shouts.each do |shout| %>
+    <div><%= shout.body %></div>
+  <% end %>
+</div>
